@@ -19,9 +19,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Echo inputs
+      - name: Echo prerelease input
         run: echo is-pre-release=${{inputs.is-pre-release}}
     
+      - name: Echo release prerelease
+        run: echo release.prerelease=${{github.event.release.prerelease}}
+        
       - name: Get Release or Pre-Release
         run: echo ${{(inputs.is-pre-release) && 'Pre-Releases' || 'Releases'}}
         
