@@ -26,4 +26,4 @@ jobs:
         run: echo ${{(inputs.is-pre-release == true) && 'Pre-Releases' || 'Releases'}}
         
       - name: Calculate is-pre-release
-        run: echo ${{github.event_name == 'workflow_dispatch' && (inputs.is-pre-release == true) || github.event.release.prerelease}}
+        run: echo ${{(github.event_name == 'workflow_dispatch' && inputs.is-pre-release) || github.event.release.prerelease}}
